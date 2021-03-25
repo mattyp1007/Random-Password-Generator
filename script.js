@@ -1,4 +1,4 @@
-// Assignment Code
+// arrays for each type of character
 var lowerArr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u',
                 'v','w','x','y','z']
 var upperArr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U',
@@ -10,6 +10,7 @@ var specialArr = [' ','!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
+  // prompt user for password length
   var passLength = prompt("Enter the length of your desired password (8-128 characters):");
   if(passLength < 8){
     alert("Password is too short!");
@@ -26,7 +27,7 @@ function generatePassword() {
   var useNum = confirm("Press OK to include numbers");
   var useSpecial = confirm("Press OK to include special characters");
 
-  // add characters of selected types to a pool of characters
+  // concat chars of selected types to a pool of chars
   var charPool = [];
   if(useLower){
     charPool = charPool.concat(lowerArr);
@@ -40,16 +41,21 @@ function generatePassword() {
   if(useSpecial){
     charPool = charPool.concat(specialArr);
   }
+  // if our pool of chars is empty, no types were selected
   if(charPool.length === 0){
     alert("You must select some type of character!");
     return;
   }
 
+  // build password of selected length
   var password = "";
   for(var i=0; i < passLength; i++){
+    // pick a random index in our pool of characters
     var index = Math.floor(Math.random() * charPool.length);
+    // concat the character to the password
     password += charPool[index];
   }
+
   return password;
 }
 // Write password to the #password input
