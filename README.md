@@ -7,3 +7,4 @@ This is a webpage for a random password generator. Upon pressing the "generate" 
 https://mattyp1007.github.io/Random-Password-Generator/
 
 ## Screenshot
+![Caption](assets/images/grab.png)
